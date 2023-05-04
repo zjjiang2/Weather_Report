@@ -1,2 +1,2 @@
 # Weather_Report
-Android Application
+Android Application written in Kotlin using Jetpack Compose and Coroutines.
