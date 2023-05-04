@@ -1,6 +1,5 @@
 package com.example.weatherreport
 
-import androidx.core.app.ActivityCompat.recreate
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
@@ -84,9 +83,9 @@ fun getWeather(coroutineScope: CoroutineScope,
 // Assign values from the API to the List of String
 fun processResponse(response: WeatherResponse): List<Pair<String, String>> {
     return listOf(
-        Pair("${response.location.name}", ""),
-        Pair("${response.location.country}", ""),
-        Pair("${response.current.condition.text}", ""),
+        Pair(response.location.name, ""),
+        Pair(response.location.country, ""),
+        Pair(response.current.condition.text, ""),
         Pair("${response.current.temp_c}", " °C"),
         Pair("Humidity: ", "${response.current.humidity}%"),
         Pair("Feels Like: ", "${response.current.feelslike_c} °C"),

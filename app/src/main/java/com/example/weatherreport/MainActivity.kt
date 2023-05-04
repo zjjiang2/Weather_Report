@@ -1,8 +1,6 @@
 package com.example.weatherreport
 
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.location.Location
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat
 import com.example.weatherreport.ui.theme.WeatherReportTheme
 import androidx.lifecycle.lifecycleScope
 
@@ -45,7 +42,7 @@ class MainActivity : ComponentActivity() {
                     Surface(
                         modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colors.background
-                    ) { mainPage(result) }
+                    ) { MainPage(result) }
                 }
             }
         }
@@ -73,7 +70,7 @@ class MainActivity : ComponentActivity() {
 
 // Takes the pair list of strings and renders the main page contents
 @Composable
-fun mainPage(texts: List<Pair<String, String>>?) {
+fun MainPage(texts: List<Pair<String, String>>?) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxSize().padding(64.dp)
@@ -81,14 +78,14 @@ fun mainPage(texts: List<Pair<String, String>>?) {
         // Loops through the list of texts for all the string values
         if (texts != null) {
             for (text in texts) {
-                textRow(text.first, text.second)
+                TextRow(text.first, text.second)
             }
         }
     }
 }
 
 @Composable
-fun textRow(text1: String, text2: String) {
+fun TextRow(text1: String, text2: String) {
     Row(
         horizontalArrangement = Arrangement.Center,
         modifier = Modifier.padding(16.dp)
